@@ -4,8 +4,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenantController;
 use Illuminate\Support\Facades\Route;
 
-// Wrap central routes in domain groups
-foreach (config('tenancy.central_domains') as $domain) {
+Route::group(['domain' =>config('tenancy.central_domains.0')], function() {
+
+    
+    // Wrap central routes in domain groups
+    foreach (config('tenancy.central_domains') as $domain) {
     Route::domain($domain)->group(function () {
 
         Route::get('/', function () {
@@ -27,3 +30,4 @@ foreach (config('tenancy.central_domains') as $domain) {
 
 // Include authentication routes
 require __DIR__ . '/auth.php';
+});
