@@ -4,8 +4,8 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Dashboard') }}
             </h2>
-                <x-btn-link href="">Tenants</x-btn-link>
-        </div>
+            <x-btn-link href="{{ route('tenants.index') }}">Tenants</x-btn-link>
+            </div>
     </x-slot>
     
     <div class="py-12">
